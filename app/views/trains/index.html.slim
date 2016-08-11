@@ -1,0 +1,12 @@
+h1 Trains list
+
+ul
+  - @trains.each do |train|
+    li
+      = link_to train.number, train
+      |  | 
+      = link_to "Edit", edit_train_path(train)
+      |  
+      = link_to "Remove", train_path(train), method: :delete, data: { confirm: "Are you sure?" }
+    
+p= link_to "Add train", new_train_path

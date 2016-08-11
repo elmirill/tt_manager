@@ -1,0 +1,7 @@
+h1= @route.title
+
+= link_to "Back to the list", routes_path
+|  | 
+= link_to "Edit", edit_route_path(@route)
+|  
+= link_to "Remove", @route, method: :delete, data: { confirm: "Are you sure?" }

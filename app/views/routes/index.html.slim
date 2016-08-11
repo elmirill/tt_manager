@@ -1,11 +1,12 @@
-%h1 Routes list
+h1 Routes list
 
-%ul
+ul
   - @routes.each do |route|
-    %li
+    li
       = link_to route.title, route
-      &nbsp;|&nbsp;
+      |  | 
       = link_to "Edit", edit_route_path(route)
+      |  
       = link_to "Remove", route_path(route), method: :delete, data: { confirm: "Are you sure?" }
     
-%p= link_to "Add route", new_route_path
+p= link_to "Add route", new_route_path

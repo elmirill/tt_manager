@@ -1,9 +1,7 @@
-%p#notice= notice
+p#notice= notice
 
-%p
-  %b Number:
-  = @train.number
+h1= @train.number
 
 = link_to 'Edit', edit_train_path(@train)
-\|
+|  | 
 = link_to 'Back', trains_path
