@@ -1,7 +1,20 @@
-p#notice= notice
+.container
 
-h1= @railway_station.title
+  p#notice= notice
 
-= link_to 'Edit', edit_railway_station_path(@railway_station)
-|  | 
-= link_to 'Back', railway_stations_path
+  h1.text-center= @railway_station.title
+  br
+  
+  .row
+    .col-md-8.col-md-offset-2
+      .well
+        h3
+          b Trains: 
+        - if @railway_station.trains.any?
+          = render @railway_station.trains
+        - else
+          p There are currently no trains.
+
+  .btn-group
+    = link_to 'Edit', edit_railway_station_path(@railway_station), class: "btn btn-primary"
+    = link_to 'Back', railway_stations_path, class: "btn btn-default"

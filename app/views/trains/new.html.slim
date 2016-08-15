@@ -1,5 +1,11 @@
-h1 New train
+.container
 
-= render 'form'
+  h1.text-center New train
+  br
+  
+  .row
+    .col-md-8.col-md-offset-2
+      .well
+        = render 'form'
 
-= link_to 'Back', trains_path
+      = link_to 'Back', trains_path, class: "btn btn-default"

@@ -6,8 +6,14 @@
         - @train.errors.full_messages.each do |msg|
           li= msg
 
-  .field
+  .form-group
     = f.label :number
-    = f.text_field :number
+    = f.text_field :number, class: "form-control"
+  .form-group
+    = f.label :route
+    = f.collection_select :route_id, Route.all, :id, :title, {}, { class: "form-control" }
+  .form-group
+    = f.label :current_station
+    = f.collection_select :current_station_id, RailwayStation.all, :id, :title, {}, { class: "form-control" }
   .actions
-    = f.submit 'Save'
+    = f.submit @train.new_record? ? 'Create train' : 'Update train' , class: "btn btn-primary"

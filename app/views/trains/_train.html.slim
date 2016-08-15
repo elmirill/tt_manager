@@ -1,0 +1,7 @@
+.list-entity
+  p= link_to train.number, train
+  .btn-group.pull-right
+    = link_to "Edit", edit_train_path(train), class: "btn btn-default btn-sm"
+    = link_to "Remove", train_path(train), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm"
+    
+  .clearfix

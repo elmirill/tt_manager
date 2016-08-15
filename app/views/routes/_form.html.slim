@@ -5,12 +5,9 @@
       ul
         - @route.errors.full_messages.each do |msg|
           li= msg
-          
-  = f.label :title
-  = f.text_field :title
-  br
-  br
-  = f.submit
-  
-br
-br
+
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: "form-control"
+  .actions
+    = f.submit @route.new_record? ? 'Create route' : 'Update route' , class: "btn btn-primary"

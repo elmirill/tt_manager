@@ -1,0 +1,7 @@
+.list-entity
+  p= link_to railway_station.title, railway_station
+  .btn-group.pull-right
+    = link_to "Edit", edit_railway_station_path(railway_station), class: "btn btn-default btn-sm"
+    = link_to "Remove", railway_station_path(railway_station), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm"
+    
+  .clearfix

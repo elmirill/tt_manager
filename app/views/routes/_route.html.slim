@@ -1,0 +1,7 @@
+.list-entity
+  p= link_to route.title, route
+  .btn-group.pull-right
+    = link_to "Edit", edit_route_path(route), class: "btn btn-default btn-sm"
+    = link_to "Remove", route_path(route), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm"
+    
+  .clearfix

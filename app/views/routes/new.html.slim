@@ -1,5 +1,11 @@
-h1 New route
+.container
 
-= render "form"
+  h1.text-center New route
+  br
+  
+  .row
+    .col-md-8.col-md-offset-2
+      .well
+        = render 'form'
 
-= link_to "Back to the list", routes_path
+      = link_to 'Back', routes_path, class: "btn btn-default"

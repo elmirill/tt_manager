@@ -1,12 +1,10 @@
-h1 Railway Stations list
+.container
 
-ul
-  - @railway_stations.each do |railway_station|
-    li
-      = link_to railway_station.title, railway_station
-      |  | 
-      = link_to "Edit", edit_railway_station_path(railway_station)
-      |  
-      = link_to "Remove", railway_station_path(railway_station), method: :delete, data: { confirm: "Are you sure?" }
-
-p= link_to "Add railway station", new_railway_station_path
+  h1.text-center Railway Stations list
+  br
+  .row
+    .col-md-8.col-md-offset-2
+      .well
+        = render @railway_stations
+    
+      = link_to "Add railway station", new_railway_station_path, class: "btn btn-default"

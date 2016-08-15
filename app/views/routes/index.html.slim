@@ -1,12 +1,10 @@
-h1 Routes list
+.container
 
-ul
-  - @routes.each do |route|
-    li
-      = link_to route.title, route
-      |  | 
-      = link_to "Edit", edit_route_path(route)
-      |  
-      = link_to "Remove", route_path(route), method: :delete, data: { confirm: "Are you sure?" }
+  h1.text-center Routes list
+  br
+  .row
+    .col-md-8.col-md-offset-2
+      .well
+        = render @routes
     
-p= link_to "Add route", new_route_path
+      = link_to "Add route", new_route_path, class: "btn btn-default"

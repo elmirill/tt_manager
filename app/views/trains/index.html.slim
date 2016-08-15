@@ -1,12 +1,10 @@
-h1 Trains list
+.container
 
-ul
-  - @trains.each do |train|
-    li
-      = link_to train.number, train
-      |  | 
-      = link_to "Edit", edit_train_path(train)
-      |  
-      = link_to "Remove", train_path(train), method: :delete, data: { confirm: "Are you sure?" }
+  h1.text-center Trains list
+  br
+  .row
+    .col-md-8.col-md-offset-2
+      .well
+        = render @trains
     
-p= link_to "Add train", new_train_path
+      = link_to "Add train", new_train_path, class: "btn btn-default"

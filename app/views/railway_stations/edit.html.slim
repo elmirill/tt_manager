@@ -1,7 +1,14 @@
-h1 Editing railway_station
+.container
 
-= render 'form'
+  h1.text-center Edit railway station
+  br
+  
+  .row
+    .col-md-8.col-md-offset-2
+      .well
+        = render 'form'
 
-= link_to 'Show', @railway_station
-|  | 
-= link_to 'Back', railway_stations_path
+    .col-md-8.col-md-offset-2
+      .btn-group
+        = link_to 'Show', @railway_station, class: "btn btn-primary"
+        = link_to 'Back', railway_stations_path, class: "btn btn-default"

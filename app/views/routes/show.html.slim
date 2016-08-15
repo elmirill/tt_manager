@@ -1,7 +1,20 @@
-h1= @route.title
+.container
 
-= link_to "Back to the list", routes_path
-|  | 
-= link_to "Edit", edit_route_path(@route)
-|  
-= link_to "Remove", @route, method: :delete, data: { confirm: "Are you sure?" }
+  p#notice= notice
+
+  h1.text-center= @route.title
+  br
+  
+  .row
+    .col-md-8.col-md-offset-2
+      .well
+        h3
+          b Trains: 
+        - if @route.trains.any?
+          = render @route.trains
+        - else
+          p There are currently no trains.
+
+  .btn-group
+    = link_to "Edit", edit_route_path(@route), class: "btn btn-primary"
+    = link_to 'Back', routes_path, class: "btn btn-default"

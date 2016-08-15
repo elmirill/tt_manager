@@ -1,0 +1,22 @@
+footer {
+  background-color: #404040;
+  padding: 20px 0 15px 0;
+  p {
+    margin: 10px 0;
+    color: #eee;
+  }
+}
+
+.page-wrap {
+  min-height: 100%;
+  margin-bottom: -110px;
+}
+
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+
+footer, .page-wrap:after {
+  height: 110px;
+}
