@@ -9,12 +9,21 @@
     .col-md-8.col-md-offset-2
       .well
         h3
+          b Stations:
+        - if @route.railway_stations.any?
+          ul
+          - @route.railway_stations.each do |rs|
+            li= rs.title
+        - else
+          p Not defined yet.
+        h3
           b Trains: 
         - if @route.trains.any?
           = render @route.trains
         - else
           p There are currently no trains.
-
-  .btn-group
-    = link_to "Edit", edit_route_path(@route), class: "btn btn-primary"
-    = link_to 'Back', routes_path, class: "btn btn-default"
+  .row
+    .col-md-8.col-md-offset-2
+      .btn-group
+        = link_to "Edit", edit_route_path(@route), class: "btn btn-primary"
+        = link_to 'Back', routes_path, class: "btn btn-default"
