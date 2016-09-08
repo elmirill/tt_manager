@@ -7,17 +7,20 @@ class Train < ApplicationRecord
   validates :number, presence: true
 
   def lower_places(type)
-    total_places = 0
-    self.wagons.where(wagon_type: type).each do |w|
-      total_places +=  w.lower_places
-    end
-    total_places
+    count_places(type, "lower")
   end
 
   def upper_places(type)
+    count_places(type, "upper")
+  end
+
+  private
+
+  def count_places(wagon_type, places_type)
     total_places = 0
-    self.wagons.where(wagon_type: type).each do |w|
-      total_places +=  w.upper_places
+    self.wagons.where(wagon_type: wagon_type).each do |w|
+      places = "#{places_type}_places".to_sym
+      total_places += w.send(places)
     end
     total_places
   end
