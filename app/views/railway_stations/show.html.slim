@@ -14,7 +14,8 @@
           = render @railway_station.trains
         - else
           p There are currently no trains.
-
-  .btn-group
-    = link_to 'Edit', edit_railway_station_path(@railway_station), class: "btn btn-primary"
-    = link_to 'Back', railway_stations_path, class: "btn btn-default"
+  .row
+    .col-md-8.col-md-offset-2
+      .btn-group
+        = link_to 'Edit', edit_railway_station_path(@railway_station), class: "btn btn-primary"
+        = link_to 'Back', railway_stations_path, class: "btn btn-default"

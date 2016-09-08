@@ -9,19 +9,44 @@
     .col-md-8.col-md-offset-2
       .well
         h4
+          b Business class wagons: 
+          = @wagons_business.count
+        p
+          b Lower places: 
+          = @train.lower_places(1)
+        p
+          b Upper places: 
+          = @train.upper_places(1)
+        hr
+          
+        h4
+          b Economy class wagons: 
+          = @wagons_economy.count
+        p
+          b Lower places: 
+          = @train.lower_places(2)
+        p
+          b Upper places: 
+          = @train.upper_places(2)
+        hr
+        
+        h4
           b Route: 
           - if @train.route.present?
             = @train.route.title
           - else
             | Not specified
         hr 
+        
         h4
           b Current station: 
           - if @train.current_station.present?
             = @train.current_station.title
           - else
             | Not specified
-
-  .btn-group
-    = link_to "Edit", edit_train_path(@train), class: "btn btn-primary"
-    = link_to 'Back', trains_path, class: "btn btn-default"
+            
+  .row
+    .col-md-8.col-md-offset-2
+      .btn-group
+        = link_to "Edit", edit_train_path(@train), class: "btn btn-primary"
+        = link_to 'Back', trains_path, class: "btn btn-default"

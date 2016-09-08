@@ -9,5 +9,8 @@
   .form-group
     = f.label :title
     = f.text_field :title, class: "form-control"
+  .form-group
+    = f.label :railway_stations
+    = f.collection_select :railway_station_ids, RailwayStation.all, :id, :title, {}, { class: "form-control", multiple: true }
   .actions
     = f.submit @route.new_record? ? 'Create route' : 'Update route' , class: "btn btn-primary"
