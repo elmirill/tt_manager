@@ -1,7 +1,0 @@
-.list-entity
-  p= link_to wagon.number, wagon
-  .btn-group.pull-right
-    = link_to "Edit", edit_wagon_path(wagon), class: "btn btn-default btn-sm"
-    = link_to "Remove", wagon_path(wagon), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm"
-    
-  .clearfix

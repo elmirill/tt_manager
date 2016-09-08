@@ -2,7 +2,7 @@
 
   p#notice= notice
 
-  h1.text-center Wagon ##{@wagon.number}
+  h1.text-center Carriage ##{@carriage.number}
   br
   
   .row
@@ -10,32 +10,32 @@
       .well
         h4
           b Train: 
-          = @wagon.train.number
+          = @carriage.train.number
         hr
         h4
           b Specifications:
         ul
           li
             b Type: 
-            - if @wagon.wagon_type == 1
+            - if @carriage.carriage_type == 1
               | Business class
-            - elsif @wagon.wagon_type == 2
+            - elsif @carriage.carriage_type == 2
               | Economy class
           li
             b Lower places: 
-            - if @wagon.lower_places.present?
-              = @wagon.lower_places
+            - if @carriage.lower_places.present?
+              = @carriage.lower_places
             - else
               | none
           li
             b Upper places: 
-            - if @wagon.upper_places.present?
-              = @wagon.upper_places
+            - if @carriage.upper_places.present?
+              = @carriage.upper_places
             - else
               | none
             
   .row
     .col-md-8.col-md-offset-2
       .btn-group
-        = link_to "Edit", edit_wagon_path(@wagon), class: "btn btn-primary"
-        = link_to 'Back', wagons_path, class: "btn btn-default"
+        = link_to "Edit", edit_carriage_path(@carriage), class: "btn btn-primary"
+        = link_to 'Back', carriages_path, class: "btn btn-default"

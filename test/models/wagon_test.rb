@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class WagonTest < ActiveSupport::TestCase
+class CarriageTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -6,8 +6,8 @@ class TrainsController < ApplicationController
   end
 
   def show
-    @wagons_business = @train.wagons.where(wagon_type: 1)
-    @wagons_economy = @train.wagons.where(wagon_type: 2)
+    @carriages_business = @train.carriages.where(carriage_type: 1)
+    @carriages_economy = @train.carriages.where(carriage_type: 2)
   end
 
   def new

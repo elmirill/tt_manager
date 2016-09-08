@@ -9,8 +9,8 @@
     .col-md-8.col-md-offset-2
       .well
         h4
-          b Business class wagons: 
-          = @wagons_business.count
+          b Business class carriages: 
+          = @carriages_business.count
         p
           b Lower places: 
           = @train.lower_places(1)
@@ -20,8 +20,8 @@
         hr
           
         h4
-          b Economy class wagons: 
-          = @wagons_economy.count
+          b Economy class carriages: 
+          = @carriages_economy.count
         p
           b Lower places: 
           = @train.lower_places(2)

@@ -1,0 +1,10 @@
+.container
+
+  h1.text-center Carriages list
+  br
+  .row
+    .col-md-8.col-md-offset-2
+      .well
+        = render @carriages
+    
+      = link_to "Add carriage", new_carriage_path, class: "btn btn-default"

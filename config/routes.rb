@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :routes
   resources :trains
   resources :railway_stations
-  resources :wagons
+  resources :carriages
 end
