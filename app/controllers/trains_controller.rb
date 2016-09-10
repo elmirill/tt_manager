@@ -11,7 +11,6 @@ class TrainsController < ApplicationController
     else
       @carriages = @train.carriages.ordered
     end
-    @carriage_types = Carriage.subclasses
   end
 
   def new
