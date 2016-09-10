@@ -6,8 +6,12 @@ class TrainsController < ApplicationController
   end
 
   def show
-    @carriages_business = @train.carriages.where(carriage_type: 1)
-    @carriages_economy = @train.carriages.where(carriage_type: 2)
+    if @train.reverse_ordered
+      @carriages = @train.carriages.reverse_ordered
+    else
+      @carriages = @train.carriages.ordered
+    end
+    @carriage_types = Carriage.subclasses
   end
 
   def new

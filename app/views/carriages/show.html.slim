@@ -2,7 +2,7 @@
 
   p#notice= notice
 
-  h1.text-center Carriage ##{@carriage.number}
+  h1.text-center #{@carriage.model_name.human} ##{@carriage.number}
   br
   
   .row
@@ -13,26 +13,12 @@
           = @carriage.train.number
         hr
         h4
-          b Specifications:
-        ul
-          li
-            b Type: 
-            - if @carriage.carriage_type == 1
-              | Business class
-            - elsif @carriage.carriage_type == 2
-              | Economy class
-          li
-            b Lower places: 
-            - if @carriage.lower_places.present?
-              = @carriage.lower_places
-            - else
-              | none
-          li
-            b Upper places: 
-            - if @carriage.upper_places.present?
-              = @carriage.upper_places
-            - else
-              | none
+          b Places:
+        - @carriage.count_places.each do |type, quantity|
+          p
+            b #{ type.humanize }: 
+            = quantity
+          
             
   .row
     .col-md-8.col-md-offset-2

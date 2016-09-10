@@ -1,0 +1,8 @@
+h4
+  b Carriages: 
+- if @carriages.present?
+  - @carriages.each do |c|
+    p = link_to c do
+      | #{ c.number } (#{ c.model_name.human.downcase })
+- else   
+  p No carriages yet.

@@ -8,26 +8,7 @@
   .row
     .col-md-8.col-md-offset-2
       .well
-        h4
-          b Business class carriages: 
-          = @carriages_business.count
-        p
-          b Lower places: 
-          = @train.lower_places(1)
-        p
-          b Upper places: 
-          = @train.upper_places(1)
-        hr
-          
-        h4
-          b Economy class carriages: 
-          = @carriages_economy.count
-        p
-          b Lower places: 
-          = @train.lower_places(2)
-        p
-          b Upper places: 
-          = @train.upper_places(2)
+        = render "trains/carriages"
         hr
         
         h4

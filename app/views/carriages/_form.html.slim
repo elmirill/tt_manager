@@ -7,14 +7,11 @@
           li= msg
   
   .form-group
-    = f.label :number
-    = f.text_field :number, class: "form-control"
-  .form-group
     = f.label :train_id
     = f.collection_select :train_id, Train.all, :id, :number, {}, { class: "form-control" }
-  .form-group
-    = f.label :carriage_type
-    = f.select :carriage_type, options_for_select([['pick an option', 0], ['business class', 1], ['economy class', 2]]), {}, { class: "form-control" }
+  / .form-group
+  /   = f.label :carriage_type
+  /   = f.select :carriage_type, options_for_select([['pick an option', 0], ['business class', 1], ['economy class', 2]]), {}, { class: "form-control" }
   .form-group
     = f.label :lower_places
     = f.number_field :lower_places, class: "form-control"
