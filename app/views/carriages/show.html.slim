@@ -1,0 +1,27 @@
+.container
+
+  p#notice= notice
+
+  h1.text-center #{@carriage.model_name.human} ##{@carriage.number}
+  br
+  
+  .row
+    .col-md-8.col-md-offset-2
+      .well
+        h4
+          b Train: 
+          = @carriage.train.number
+        hr
+        h4
+          b Places:
+        - @carriage.count_places.each do |type, quantity|
+          p
+            b #{ type.humanize }: 
+            = quantity
+          
+            
+  .row
+    .col-md-8.col-md-offset-2
+      .btn-group
+        = link_to "Edit", edit_carriage_path(@carriage), class: "btn btn-primary"
+        = link_to 'Back', carriages_path, class: "btn btn-default"

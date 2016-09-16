@@ -1,0 +1,7 @@
+.list-entity
+  p= link_to carriage.number, carriage
+  .btn-group.pull-right
+    = link_to "Edit", edit_carriage_path(carriage), class: "btn btn-default btn-sm"
+    = link_to "Remove", carriage_path(carriage), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm"
+    
+  .clearfix
