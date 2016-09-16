@@ -25,10 +25,9 @@ class Carriage < ApplicationRecord
 
   def set_number
     if train.carriages.empty?
-      self.number = "1"
+      self.number = 1
     else
-      carriages_numbers = train.carriages.map { |c| c.number.to_i }
-      self.number = (carriages_numbers.max + 1).to_s
+      self.number = train.carriages.maximum(:number) + 1
     end
   end
 end
