@@ -1,0 +1,37 @@
+table.table.table-bordered
+  tr
+    td
+      b Train
+    td
+      b Departure
+    td
+      b Arrival
+  tr
+    td{ rowspan = "2" }
+      = @ticket.train_number
+    td
+      = @ticket.departure_title
+    td
+      = @ticket.arrival_title
+  tr
+    td
+      = @ticket.departure_time
+    td
+      = @ticket.arrival_time
+
+= form_for @ticket do |f|
+
+  = render "shared/errors", resource: @ticket
+          
+  = f.hidden_field :train_id, value: @ticket.train_id
+  = f.hidden_field :departure_id, value: @ticket.departure_id
+  = f.hidden_field :arrival_id, value: @ticket.arrival_id
+  = f.hidden_field :user_id, value: User.take.id if User.take
+  .form-group
+    = f.label :name, "Full Name"
+    = f.text_field :name, class: "form-control"
+  .form-group
+    = f.label :passport, "Passport Data"
+    = f.text_field :passport, class: "form-control"
+  .actions
+    = f.submit @ticket.new_record? ? 'Buy ticket' : 'Edit ticket' , class: "btn btn-primary"

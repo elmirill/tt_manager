@@ -1,0 +1,16 @@
+.container
+
+  p#notice= notice
+
+  h1.text-center Edit ticket
+  br
+  
+  .row
+    .col-md-8.col-md-offset-2
+      .well
+        = render 'form'
+        
+    .col-md-8.col-md-offset-2
+      .btn-group
+        = link_to 'Show', @ticket, class: "btn btn-primary"
+        = link_to 'Back', tickets_path, class: "btn btn-default"

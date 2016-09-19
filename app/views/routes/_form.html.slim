@@ -6,9 +6,9 @@
         - @route.errors.full_messages.each do |msg|
           li= msg
 
-  .form-group
-    = f.label :title
-    = f.text_field :title, class: "form-control"
+  / .form-group
+  /   = f.label :title
+  /   = f.text_field :title, class: "form-control"
   .form-group
     = f.label :railway_stations
     = f.collection_select :railway_station_ids, RailwayStation.all, :id, :title, {}, { class: "form-control", multiple: true }

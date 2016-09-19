@@ -1,0 +1,38 @@
+.container
+
+  p#notice= notice
+
+  h1.text-center Search
+  br
+  
+  .row
+    .col-md-8.col-md-offset-2
+      .well
+        = form_tag(new_search_path, method: "get")
+          .form-inline.text-center
+            .form-group
+              = collection_select :search, :departure, @stations, :id, :title, {selected: @departure}, { class: "form-control" }
+              | &nbsp; — &nbsp;
+              = collection_select :search, :arrival, @stations, :id, :title, {selected: @arrival}, { class: "form-control" }
+              | &nbsp;&nbsp;
+              = button_tag type: "submit", class: "btn btn-primary" do
+                = fa_icon "search"
+        
+        - if @trains
+          br
+          - if @trains.present?
+            table.table.table-bordered
+              tr
+                td Train number
+                td Departure time
+                td Arrival time
+                td
+              - @trains.each do |t|
+                tr
+                  td= t.number
+                  td= Search.get_time(t, @departure, "departure")
+                  td= Search.get_time(t, @arrival, "arrival")
+                  td.text-center= link_to "Buy", new_ticket_path(ticket: { train_id: t.id, departure: @departure, arrival: @arrival }), class: "btn btn-primary"
+              br
+          - else
+            h4.text-center No trains matched your search.

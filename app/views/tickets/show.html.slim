@@ -1,0 +1,41 @@
+.container
+
+  p#notice= notice
+
+  h1.text-center Ticket ##{@ticket.number}
+  br
+  
+  .row
+    .col-md-8.col-md-offset-2
+      .well
+        = link_to "Return Ticket", @ticket, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger pull-right"
+        
+        h4 <b>Name:</b> #{@ticket.name}
+        h4 <b>Passport data:</b> #{@ticket.passport}
+        br
+        table.table.table-bordered
+          tr
+            td
+              b Train
+            td
+              b Departure
+            td
+              b Arrival
+          tr
+            td{ rowspan = "2" }
+              = @ticket.train_number
+            td
+              = @ticket.departure_title
+            td
+              = @ticket.arrival_title
+          tr
+            td
+              = @ticket.departure_time
+            td
+              = @ticket.arrival_time
+              
+  .row
+    .col-md-8.col-md-offset-2
+      .btn-group
+        = link_to "Edit", edit_ticket_path(@ticket), class: "btn btn-primary"
+        = link_to 'Back to all tickets', tickets_path, class: "btn btn-default"

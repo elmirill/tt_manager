@@ -18,10 +18,10 @@
           p
             b #{ type.humanize }: 
             = quantity
-          
+            
             
   .row
     .col-md-8.col-md-offset-2
       .btn-group
         = link_to "Edit", edit_carriage_path(@carriage), class: "btn btn-primary"
-        = link_to 'Back', carriages_path, class: "btn btn-default"
+        = link_to 'Back', @carriage.train, class: "btn btn-default"

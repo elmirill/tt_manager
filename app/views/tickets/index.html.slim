@@ -1,0 +1,28 @@
+.container
+
+  p#notice= notice
+
+  h1.text-center Tickets List
+  br
+  
+  .row
+    .col-md-8.col-md-offset-2
+      .well
+        table.table.table-bordered
+          tr
+            td 
+              b Number
+            td
+              b Name
+            td
+              b Departure
+            td
+              b Arrival
+            td
+            - @tickets.each do |t|
+              tr
+                td= link_to t.number, t
+                td= t.name
+                td= t.departure_title
+                td= t.arrival_title
+                td.text-center= link_to "Return", ticket_path(t), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger"
