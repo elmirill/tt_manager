@@ -19,10 +19,4 @@
             td
               b Arrival
             td
-            - @tickets.each do |t|
-              tr
-                td= link_to t.number, t
-                td= t.name
-                td= t.departure_title
-                td= t.arrival_title
-                td.text-center= link_to "Return", ticket_path(t), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger"
+              = render @tickets

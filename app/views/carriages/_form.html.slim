@@ -1,10 +1,6 @@
 = form_for [@train, @carriage] do |f|
-  - if @carriage.errors.any?
-    #error_explanation
-      h2= "#{pluralize(@carriage.errors.count, "error")} prohibited this carriage from being saved:"
-      ul
-        - @carriage.errors.full_messages.each do |msg|
-          li= msg
+
+  = render "shared/errors", resource: @carriage
   
   / .form-group
   /   - Carriage.subclasses.each do |c|

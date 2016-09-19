@@ -1,0 +1,6 @@
+tr
+  td= link_to ticket.number, ticket
+  td= ticket.name
+  td= ticket.departure_title
+  td= ticket.arrival_title
+  td.text-center= link_to "Return", ticket_path(ticket), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger"
