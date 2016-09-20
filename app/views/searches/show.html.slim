@@ -30,9 +30,9 @@
               - @trains.each do |t|
                 tr
                   td= t.number
-                  td= Search.get_time(t, @departure, "departure")
-                  td= Search.get_time(t, @arrival, "arrival")
-                  td.text-center= link_to "Buy", new_ticket_path(ticket: { train_id: t.id, departure: @departure, arrival: @arrival }), class: "btn btn-primary"
+                  td= get_station_time(t, @departure, "departure")
+                  td= get_station_time(t, @arrival, "arrival")
+                  td.text-center= link_to "Buy", new_ticket_path(ticket: { train_id: t.id, departure_id: @departure, arrival_id: @arrival }), class: "btn btn-primary"
               br
           - else
             h4.text-center No trains matched your search.

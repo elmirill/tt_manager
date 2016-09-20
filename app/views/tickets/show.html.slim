@@ -2,7 +2,7 @@
 
   p#notice= notice
 
-  h1.text-center Ticket ##{@ticket.number}
+  h1.text-center Ticket ##{@ticket.id}
   br
   
   .row
@@ -13,26 +13,7 @@
         h4 <b>Name:</b> #{@ticket.name}
         h4 <b>Passport data:</b> #{@ticket.passport}
         br
-        table.table.table-bordered
-          tr
-            td
-              b Train
-            td
-              b Departure
-            td
-              b Arrival
-          tr
-            td{ rowspan = "2" }
-              = @ticket.train_number
-            td
-              = @ticket.departure_title
-            td
-              = @ticket.arrival_title
-          tr
-            td
-              = @ticket.departure_time
-            td
-              = @ticket.arrival_time
+        = render "ticket_data"
               
   .row
     .col-md-8.col-md-offset-2

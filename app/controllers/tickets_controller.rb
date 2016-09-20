@@ -9,12 +9,7 @@ class TicketsController < ApplicationController
   end
 
   def new
-    @ticket = Ticket.new
-
-    @ticket.train_id = params[:ticket][:train_id]
-    @ticket.departure_id = params[:ticket][:departure]
-    @ticket.arrival_id = params[:ticket][:arrival]
-    @ticket.user = User.take
+    @ticket = Ticket.new(ticket_params)
   end
 
   def create

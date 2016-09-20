@@ -1,0 +1,20 @@
+table.table.table-bordered
+  tr
+    td
+      b Train
+    td
+      b Departure
+    td
+      b Arrival
+      tr
+        td{ rowspan = "2" }
+          = @ticket.train.number
+        td
+          = @ticket.departure_station.title
+        td
+          = @ticket.arrival_station.title
+      tr
+        td
+          = get_station_time(@ticket.train_id, @ticket.departure_id, "departure")
+        td
+          = get_station_time(@ticket.train_id, @ticket.arrival_id, "arrival")
