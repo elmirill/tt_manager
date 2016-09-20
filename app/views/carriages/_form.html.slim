@@ -1,22 +1,27 @@
-= form_for @carriage do |f|
-  - if @carriage.errors.any?
-    #error_explanation
-      h2= "#{pluralize(@carriage.errors.count, "error")} prohibited this carriage from being saved:"
-      ul
-        - @carriage.errors.full_messages.each do |msg|
-          li= msg
+= form_for [@train, @carriage] do |f|
+
+  = render "shared/errors", resource: @carriage
   
-  .form-group
-    = f.label :train_id
-    = f.collection_select :train_id, Train.all, :id, :number, {}, { class: "form-control" }
   / .form-group
-  /   = f.label :carriage_type
-  /   = f.select :carriage_type, options_for_select([['pick an option', 0], ['business class', 1], ['economy class', 2]]), {}, { class: "form-control" }
+  /   - Carriage.subclasses.each do |c|
+  /     = radio_button_tag :type, c.model_name
+  /     | &nbsp;
+  /     = label_tag "type_#{c.model_name}", c.model_name.human
+  /     br
   .form-group
     = f.label :lower_places
     = f.number_field :lower_places, class: "form-control"
   .form-group
     = f.label :upper_places
     = f.number_field :upper_places, class: "form-control"
+  .form-group
+    = f.label :side_lower_places
+    = f.number_field :side_lower_places, class: "form-control"
+  .form-group
+    = f.label :side_upper_places
+    = f.number_field :side_upper_places, class: "form-control"
+  .form-group
+    = f.label :seating_places
+    = f.number_field :seating_places, class: "form-control"
   .actions
     = f.submit @carriage.new_record? ? 'Create carriage' : 'Update carriage' , class: "btn btn-primary"

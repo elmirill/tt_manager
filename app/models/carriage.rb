@@ -4,7 +4,7 @@ class Carriage < ApplicationRecord
   validates :number, presence: true
   validates :number, uniqueness: { scope: :train_id, message: "There's already a carriage with this number in this train." }
 
-  before_validation :set_number
+  before_validation :set_number, on: :create
 
   scope :ordered, -> { order(:number) }
   scope :reverse_ordered, -> { order("number DESC") }
@@ -24,10 +24,7 @@ class Carriage < ApplicationRecord
   private
 
   def set_number
-    if train.carriages.empty?
-      self.number = 1
-    else
-      self.number = train.carriages.maximum(:number) + 1
-    end
+    max_number = train.carriages.maximum(:number) || 0
+    self.number = max_number + 1
   end
 end

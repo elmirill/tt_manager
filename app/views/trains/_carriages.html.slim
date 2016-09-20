@@ -1,8 +1,13 @@
 h4
   b Carriages: 
-- if @carriages.present?
-  - @carriages.each do |c|
-    p = link_to c do
-      | #{ c.number } (#{ c.model_name.human.downcase })
+- if @train.carriages.present?
+  table.table.table-bordered
+    - @train.carriages.each do |c|
+      tr
+        td
+          = link_to c do
+            p.pull-left #{ c.model_name.human } ##{ c.number }
+          = link_to "Remove", carriage_path(c), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-danger pull-right"
 - else   
   p No carriages yet.
+= link_to "Add carriage", new_train_carriage_path(@train)

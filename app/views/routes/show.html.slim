@@ -11,9 +11,35 @@
         h3
           b Stations:
         - if @route.railway_stations.any?
-          ul
-          - @route.railway_stations.ordered.each do |rs|
-            li= rs.title
+          table.table.table-bordered
+            - @route.railway_stations.ordered.each do |rs|
+              tr
+                td
+                  = rs.title
+                td
+                  = form_tag update_position_railway_station_path(rs), method: :patch do
+                    .input-group
+                      = number_field_tag :position, rs.current_position(@route.id), class: "form-control"
+                      = hidden_field_tag :route_id, @route.id
+                      span.input-group-btn
+                        = button_tag type: "submit", class: "btn btn-primary" do
+                          = fa_icon "sort"
+                td
+                  = form_tag update_arrival_railway_station_path(rs), method: :patch
+                    .input-group
+                      = time_field_tag :arrival, rs.current_arrival(@route.id), class: "form-control"
+                      = hidden_field_tag :route_id, @route.id
+                      span.input-group-btn
+                        = button_tag type: "submit", class: "btn btn-primary" do
+                          = fa_icon "download"
+                td
+                  = form_tag update_departure_railway_station_path(rs), method: :patch
+                    .input-group
+                      = time_field_tag :departure, rs.current_departure(@route.id), class: "form-control"
+                      = hidden_field_tag :route_id, @route.id
+                      span.input-group-btn
+                        = button_tag type: "submit", class: "btn btn-primary" do
+                          = fa_icon "upload"
         - else
           p Not defined yet.
         h3
